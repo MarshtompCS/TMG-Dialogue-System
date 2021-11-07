@@ -23,4 +23,5 @@ if __name__ == '__main__':
     tokenizer = BertTokenizer.from_pretrained(args.model)
     model = CPTForConditionalGeneration.from_pretrained(args.model)
     trainer = Trainer(model=model, tokenizer=tokenizer, args=args)
-    trainer.train()
+    # trainer.train()
+    trainer.test()

@@ -141,5 +141,6 @@ class Trainer:
 
     def test(self):
         if self.args.state_dict is not None:
-            self.model.load_state_dict(self.args.state_dict['model'])
+            checkpoint = torch.load(self.args.state_dict, map_location='cpu')
+            self.model.load_state_dict(checkpoint['model'])
         return self.eval_epoch(self.test_dataloader)
